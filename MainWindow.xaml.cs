@@ -136,7 +136,87 @@ namespace CSharpTrainer
                         new PracticeTask { TaskDescription = "Обработайте исключение при чтении файла." },
                         new PracticeTask { TaskDescription = "Создайте собственное исключение и вызовите его." }
                     }
-                }
+                },
+                new Module
+{
+    Title = "Работа с базами данных",
+    Description = "Изучите основы подключения к базам данных с помощью ADO.NET.",
+    Tasks = new List<PracticeTask>
+    {
+        new PracticeTask
+        {
+            TaskDescription = "Создайте подключение к базе данных SQLite с использованием класса SQLiteConnection.",
+            ValidationMethod = (assembly) => {
+               
+                var type = assembly.GetType("UserSubmission.Program");
+                if (type == null) return false;
+
+                var method = type.GetMethod("Main");
+                if (method == null) return false;
+
+                var body = method.GetMethodBody();
+                return body != null; 
+            }
+        },
+        new PracticeTask
+        {
+            TaskDescription = "Создайте SQL-запрос SELECT для выборки всех записей из таблицы 'Users'.",
+            ValidationMethod = (assembly) => true 
+        },
+        new PracticeTask
+        {
+            TaskDescription = "Используйте SqlCommand для выполнения SQL-запроса.",
+            ValidationMethod = (assembly) => true
+        }
+    }
+ },
+                new Module
+{
+    Title = "Делегаты и события",
+    Description = "Научитесь использовать делегаты, анонимные методы и события в C#.",
+    Tasks = new List<PracticeTask>
+    {
+        new PracticeTask
+        {
+            TaskDescription = "Создайте делегат, который принимает два числа и возвращает их сумму.",
+            ValidationMethod = (assembly) => true
+        },
+        new PracticeTask
+        {
+            TaskDescription = "Создайте событие и подпишитесь на него.",
+            ValidationMethod = (assembly) => true
+        },
+        new PracticeTask
+        {
+            TaskDescription = "Используйте анонимный метод с делегатом.",
+            ValidationMethod = (assembly) => true
+        }
+    }
+},
+                new Module
+{
+    Title = "Асинхронность и многопоточность",
+    Description = "Изучите ключевые конструкции асинхронного программирования в C#: async, await, Task и Thread.",
+    Tasks = new List<PracticeTask>
+    {
+        new PracticeTask
+        {
+            TaskDescription = "Создайте асинхронный метод, который возвращает Task и выполняет задержку в 1 секунду.",
+            ValidationMethod = (assembly) => true
+        },
+        new PracticeTask
+        {
+            TaskDescription = "Запустите задачу в новом потоке с использованием класса Thread.",
+            ValidationMethod = (assembly) => true
+        },
+        new PracticeTask
+        {
+            TaskDescription = "Создайте метод, который использует async и await для асинхронного выполнения.",
+            ValidationMethod = (assembly) => true
+        }
+    }
+}
+
             };
 
             foreach (var module in Modules)
@@ -152,24 +232,13 @@ namespace CSharpTrainer
             {
                 Module module = (Module)grid.DataContext;
 
-                var incompleteTasks = module.Tasks.Where(t => !t.IsCompleted).ToList();
-                if (!incompleteTasks.Any())
-                {
-                    MessageBox.Show("Все задачи в этом модуле уже выполнены.");
-                    return;
-                }
-
-                var random = new Random();
-                var task = incompleteTasks[random.Next(incompleteTasks.Count)];
-
-                var moduleWindow = new ModulePage(module, task);
+                var moduleWindow = new ModulePage(module);
                 moduleWindow.ShowDialog();
 
                 if (moduleWindow.IsCompleted)
                 {
-                    task.IsCompleted = true;
-                    SaveProgress();
                     UpdateProgress();
+                    SaveProgress();
                 }
             }
             else

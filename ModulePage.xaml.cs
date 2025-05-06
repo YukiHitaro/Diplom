@@ -1,31 +1,20 @@
 ﻿using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis;
-using Microsoft.CSharp;
 using System;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Microsoft.CodeAnalysis.CSharp.Syntax; // Добавляем using для Roslyn
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace CSharpTrainer
 {
     public partial class ModulePage : Window
     {
-        private readonly Module _module;
-        private readonly PracticeTask _currentTask;
-        public bool IsCompleted { get; private set; }
+        private Module _module;
+        public bool IsCompleted => _module.IsCompleted;
+        private PracticeTask _selectedTask;
 
         // Шаблон кода (добавлены using)
         private const string CodeTemplate = @"
@@ -45,22 +34,42 @@ namespace UserSubmission
 }
 ";
 
-        public ModulePage(Module module, PracticeTask task)
+        public ModulePage(Module module)
         {
             InitializeComponent();
             _module = module;
-            _currentTask = task;
 
             TitleBlock.Text = module.Title;
             DescriptionBlock.Text = module.Description;
-            TaskBlock.Text = _currentTask.TaskDescription;
+            TaskList.ItemsSource = _module.Tasks;
+
+            // Calculate and display module progress
+            UpdateModuleProgress();
         }
 
-        private void CheckAnswer_Click(object sender, RoutedEventArgs e)
+        private void UpdateModuleProgress()
+        {
+            int completedTasks = _module.Tasks.Count(t => t.IsCompleted);
+            double progress = (double)completedTasks / _module.Tasks.Count * 100;
+            ModuleProgressBar.Value = progress;
+        }
+
+        private void TaskList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _selectedTask = TaskList.SelectedItem as PracticeTask;
+            if (_selectedTask != null)
+            {
+                TaskBlock.Text = _selectedTask.TaskDescription;
+                StartTaskButton.Visibility = Visibility.Visible;
+                AnswerBox.Text = string.Empty;
+            }
+        }
+
+        private void StartTaskButton_Click(object sender, RoutedEventArgs e)
         {
             string userCode = AnswerBox.Text;
 
-            if (string.IsNullOrWhiteSpace(userCode)) 
+            if (string.IsNullOrWhiteSpace(userCode))
             {
                 MessageBox.Show("Пожалуйста, введите код.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -71,9 +80,16 @@ namespace UserSubmission
                 var result = CompileAndValidate(userCode);
                 if (result)
                 {
-                    MessageBox.Show("Верно! Модуль пройден ✅", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-                    IsCompleted = true;
-                    this.Close();
+                    MessageBox.Show("Верно! Задание выполнено ✅", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    _selectedTask.IsCompleted = true;
+                    UpdateModuleProgress();
+
+                    // Проверка завершён ли весь модуль
+                    if (_module.IsCompleted)
+                    {
+                        this.DialogResult = true;
+                        this.Close();
+                    }
                 }
                 else
                 {
@@ -85,7 +101,6 @@ namespace UserSubmission
                 MessageBox.Show($"Ошибка компиляции или выполнения:\n{ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
 
         private bool CompileAndValidate(string code)
         {
@@ -119,7 +134,7 @@ namespace UserSubmission
             ms.Seek(0, SeekOrigin.Begin);
             var assembly = Assembly.Load(ms.ToArray());
 
-            return _currentTask.ValidationMethod?.Invoke(assembly) ?? false;
+            return _selectedTask.ValidationMethod?.Invoke(assembly) ?? false;
         }
     }
 }

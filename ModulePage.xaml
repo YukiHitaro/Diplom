@@ -7,17 +7,27 @@
         Background="{StaticResource PrimaryBackgroundColor}"
         Foreground="{StaticResource PrimaryTextColor}"
         WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-    <Grid Margin="20">
-        <StackPanel>
-            <!-- Заголовок -->
+        <!-- Список задач -->
+        <ListBox x:Name="TaskList" 
+                 DisplayMemberPath="TaskDescription" 
+                 SelectionChanged="TaskList_SelectionChanged"
+                 Background="{StaticResource SecondaryBackgroundColor}"
+                 Foreground="{StaticResource PrimaryTextColor}"/>
+
+        <!-- Панель с задачей -->
+        <StackPanel Grid.Column="1" Margin="20">
             <TextBlock x:Name="TitleBlock"
                        FontSize="28"
                        FontWeight="Bold"
                        Foreground="{StaticResource AccentColor}"
                        Margin="0,0,0,15"/>
 
-            <!-- Прогресс-бар -->
             <ProgressBar x:Name="ModuleProgressBar"
                          Height="20"
                          Minimum="0"
@@ -27,14 +37,12 @@
                          Foreground="{StaticResource AccentColor}"
                          Margin="0,0,0,20"/>
 
-            <!-- Описание -->
             <TextBlock x:Name="DescriptionBlock"
                        FontSize="14"
                        TextWrapping="Wrap"
                        Foreground="{StaticResource SecondaryTextColor}"
                        Margin="0,0,0,20"/>
 
-            <!-- Задание -->
             <TextBlock Text="Задание:"
                        FontWeight="Bold"
                        FontSize="16"
@@ -49,22 +57,17 @@
                            TextWrapping="Wrap"/>
             </Border>
 
-            <!-- Ответ -->
-            <TextBlock Text="Ваш ответ:"
-                       FontWeight="Bold"
-                       FontSize="16"
-                       Margin="0,0,0,5"/>
-
             <TextBox x:Name="AnswerBox"
                      Height="100"
                      TextWrapping="Wrap"
                      AcceptsReturn="True"
                      Margin="0,0,0,15"/>
 
-            <!-- Кнопка -->
-            <Button Content="Проверить"
+            <Button x:Name="StartTaskButton" 
+                    Content="Проверить" 
                     Style="{StaticResource AccentButtonStyle}"
-                    Click="CheckAnswer_Click"/>
+                    Click="StartTaskButton_Click"
+                    Visibility="Collapsed"/>
         </StackPanel>
     </Grid>
 </Window>
