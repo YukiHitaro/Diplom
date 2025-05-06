@@ -1,0 +1,115 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA692AF-D5DC-4E67-A5F2-75FFAD6F4C5B}|CSharpTrainer.csproj|c:\\users\\turtle\\desktop\\csharptrainer\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9CA692AF-D5DC-4E67-A5F2-75FFAD6F4C5B}|CSharpTrainer.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA692AF-D5DC-4E67-A5F2-75FFAD6F4C5B}|CSharpTrainer.csproj|C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\modulepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9CA692AF-D5DC-4E67-A5F2-75FFAD6F4C5B}|CSharpTrainer.csproj|solutionrelative:modulepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA692AF-D5DC-4E67-A5F2-75FFAD6F4C5B}|CSharpTrainer.csproj|C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CA692AF-D5DC-4E67-A5F2-75FFAD6F4C5B}|CSharpTrainer.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA692AF-D5DC-4E67-A5F2-75FFAD6F4C5B}|CSharpTrainer.csproj|C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\modulepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CA692AF-D5DC-4E67-A5F2-75FFAD6F4C5B}|CSharpTrainer.csproj|solutionrelative:modulepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA692AF-D5DC-4E67-A5F2-75FFAD6F4C5B}|CSharpTrainer.csproj|C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\practicetask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CA692AF-D5DC-4E67-A5F2-75FFAD6F4C5B}|CSharpTrainer.csproj|solutionrelative:practicetask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA692AF-D5DC-4E67-A5F2-75FFAD6F4C5B}|CSharpTrainer.csproj|C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\module.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CA692AF-D5DC-4E67-A5F2-75FFAD6F4C5B}|CSharpTrainer.csproj|solutionrelative:module.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Module.cs",
+              "DocumentMoniker": "C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\Module.cs",
+              "RelativeDocumentMoniker": "Module.cs",
+              "ToolTip": "C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\Module.cs",
+              "RelativeToolTip": "Module.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T11:47:37.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PracticeTask.cs",
+              "DocumentMoniker": "C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\PracticeTask.cs",
+              "RelativeDocumentMoniker": "PracticeTask.cs",
+              "ToolTip": "C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\PracticeTask.cs",
+              "RelativeToolTip": "PracticeTask.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T11:45:50.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ModulePage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\ModulePage.xaml.cs",
+              "RelativeDocumentMoniker": "ModulePage.xaml.cs",
+              "ToolTip": "C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\ModulePage.xaml.cs",
+              "RelativeToolTip": "ModulePage.xaml.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAUwGEAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T18:15:34.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAUwLUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T18:09:05.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ModulePage.xaml",
+              "DocumentMoniker": "C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\ModulePage.xaml",
+              "RelativeDocumentMoniker": "ModulePage.xaml",
+              "ToolTip": "C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\ModulePage.xaml",
+              "RelativeToolTip": "ModulePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-09T18:15:23.209Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\TurTle\\Desktop\\CSharpTrainer\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-09T18:09:06.807Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
