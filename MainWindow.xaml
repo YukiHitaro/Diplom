@@ -49,9 +49,8 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Border Margin="0,5"
-                                    Background="{StaticResource SecondaryBackgroundColor}"
-                                    CornerRadius="10"
-                                    Padding="10">
+        Style="{StaticResource ModuleBorderStyle}"
+        Padding="10">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
@@ -60,21 +59,21 @@
                                     </Grid.ColumnDefinitions>
 
                                     <materialDesign:PackIcon Kind="CodeTags"
-                                                             Width="32"
-                                                             Height="32"
-                                                             Foreground="{StaticResource AccentColor}"
-                                                             Margin="0,0,10,0"/>
+                                Width="32"
+                                Height="32"
+                                Foreground="{StaticResource AccentColor}"
+                                Margin="0,0,10,0"/>
 
                                     <StackPanel Grid.Column="1">
-                                        <TextBlock Text="{Binding Title}" FontSize="18" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding Title}" Style="{StaticResource ModuleTitleStyle}"/>
                                         <TextBlock Text="{Binding Description}" FontSize="14" Foreground="{StaticResource SecondaryTextColor}"/>
                                     </StackPanel>
 
                                     <Button Grid.Column="2"
-                                            Content="Открыть"
-                                            Style="{StaticResource AccentButtonStyle}"
-                                            Click="OpenModule_Click"
-                                            DataContext="{Binding RelativeSource={RelativeSource AncestorType=Border}}"/>
+                Content="Открыть"
+                Style="{StaticResource AccentButtonStyle}"
+                Click="OpenModule_Click"
+                DataContext="{Binding RelativeSource={RelativeSource AncestorType=Border}}"/>
                                 </Grid>
                             </Border>
                         </DataTemplate>
@@ -83,7 +82,7 @@
             </ScrollViewer>
         </Grid>
         <DockPanel Background="{StaticResource SecondaryBackgroundColor}" DockPanel.Dock="Top" Margin="0,0,0,531">
-            <TextBlock Text="C# Trainer"
+            <TextBlock Text="Тренажёр C#"
                        FontSize="24"
                        FontWeight="Bold"
                        Foreground="{StaticResource AccentColor}"

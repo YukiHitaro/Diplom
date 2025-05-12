@@ -102,7 +102,7 @@
             <!-- Стиль для Border модуля -->
             <Style x:Key="ModuleBorderStyle" TargetType="Border">
                 <Setter Property="Background" Value="{StaticResource SecondaryBackgroundColor}"/>
-                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="CornerRadius" Value="10"/>
                 <Setter Property="BorderThickness" Value="1"/>
                 <Setter Property="BorderBrush" Value="{StaticResource AccentColor}"/>
                 <Setter Property="Padding" Value="10"/>
@@ -126,7 +126,7 @@
             <!-- Стиль для TextBlock в заголовке модуля -->
             <Style x:Key="ModuleTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
                 <Setter Property="FontWeight" Value="Bold"/>
-                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontSize" Value="18"/>
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding IsCompleted}" Value="True">
                         <Setter Property="Foreground" Value="#2ECC71"/>
@@ -134,7 +134,7 @@
                     </DataTrigger>
                 </Style.Triggers>
             </Style>
-            
+
             <!-- Стиль TextBlock -->
             <Style TargetType="TextBlock">
                 <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>

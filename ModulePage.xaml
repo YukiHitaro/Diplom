@@ -15,10 +15,30 @@
 
         <!-- Список задач -->
         <ListBox x:Name="TaskList" 
-                 DisplayMemberPath="TaskDescription" 
-                 SelectionChanged="TaskList_SelectionChanged"
-                 Background="{StaticResource SecondaryBackgroundColor}"
-                 Foreground="{StaticResource PrimaryTextColor}"/>
+         SelectionChanged="TaskList_SelectionChanged"
+         Background="{StaticResource SecondaryBackgroundColor}"
+         Foreground="{StaticResource PrimaryTextColor}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <CheckBox IsChecked="{Binding IsCompleted}" VerticalAlignment="Center" Margin="0,0,10,0" IsEnabled="False"/>
+                        <TextBlock Text="{Binding TaskDescription}" VerticalAlignment="Center">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsCompleted}" Value="True">
+                                            <Setter Property="Foreground" Value="#2ECC71"/>
+                                            <Setter Property="FontWeight" Value="Bold"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <!-- Панель с задачей -->
         <StackPanel Grid.Column="1" Margin="20">
