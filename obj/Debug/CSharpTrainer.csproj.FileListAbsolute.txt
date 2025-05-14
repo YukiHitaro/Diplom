@@ -85,3 +85,4 @@ C:\Users\TurTle\Desktop\CSharpTrainer\bin\Debug\System.IO.Pipelines.xml
 C:\Users\TurTle\Desktop\CSharpTrainer\bin\Debug\System.Text.Encodings.Web.xml
 C:\Users\TurTle\Desktop\CSharpTrainer\bin\Debug\System.Text.Json.xml
 C:\Users\TurTle\Desktop\CSharpTrainer\bin\Debug\System.ValueTuple.xml
+C:\Users\TurTle\Desktop\CSharpTrainer\obj\Debug\GeneratedInternalTypeHelper.g.cs

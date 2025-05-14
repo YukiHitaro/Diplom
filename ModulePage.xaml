@@ -15,9 +15,9 @@
 
         <!-- Список задач -->
         <ListBox x:Name="TaskList" 
-         SelectionChanged="TaskList_SelectionChanged"
-         Background="{StaticResource SecondaryBackgroundColor}"
-         Foreground="{StaticResource PrimaryTextColor}">
+                 SelectionChanged="TaskList_SelectionChanged"
+                 Background="{StaticResource SecondaryBackgroundColor}"
+                 Foreground="{StaticResource PrimaryTextColor}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="5">
@@ -45,8 +45,16 @@
             <TextBlock x:Name="TitleBlock"
                        FontSize="28"
                        FontWeight="Bold"
+                       Text="{Binding Title}" 
                        Foreground="{StaticResource AccentColor}"
-                       Margin="0,0,0,15"/>
+                       Margin="0,0,0,5"/>
+            
+            <Button x:Name="ResetModuleButton"
+                    Content="Перепройти модуль"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Click="ResetModuleButton_Click"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,10" RenderTransformOrigin="0.508,0.545"/>
 
             <ProgressBar x:Name="ModuleProgressBar"
                          Height="20"
@@ -55,11 +63,12 @@
                          Value="0"
                          Background="{StaticResource SecondaryBackgroundColor}"
                          Foreground="{StaticResource AccentColor}"
-                         Margin="0,0,0,20"/>
-
+                         Margin="0,0,0,15"/>
+            
             <TextBlock x:Name="DescriptionBlock"
                        FontSize="14"
                        TextWrapping="Wrap"
+                       Text="{Binding Description}" 
                        Foreground="{StaticResource SecondaryTextColor}"
                        Margin="0,0,0,20"/>
 
@@ -77,10 +86,29 @@
                            TextWrapping="Wrap"/>
             </Border>
 
+            <TextBlock x:Name="HintText" 
+                       Text="Подсказка будет доступна после 3 неудачных попыток"
+                       FontStyle="Italic"
+                       Foreground="{StaticResource SecondaryTextColor}"
+                       Margin="0,5,0,5"
+                       Visibility="Hidden"/> <!-- Изначально скрыта -->
+
+            <Border x:Name="DetailedDescriptionBorder"
+                    Background="{StaticResource SecondaryBackgroundColor}"
+                    CornerRadius="5"
+                    Padding="10"
+                    Margin="0,0,0,15"
+                    Visibility="Collapsed">
+                <TextBlock x:Name="DetailedDescriptionBlock"
+                           FontSize="14"
+                           TextWrapping="Wrap"/>
+            </Border>
+
             <TextBox x:Name="AnswerBox"
                      Height="100"
                      TextWrapping="Wrap"
                      AcceptsReturn="True"
+                     TextChanged="AnswerBox_TextChanged" 
                      Margin="0,0,0,15"/>
 
             <Button x:Name="StartTaskButton" 

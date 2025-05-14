@@ -17,14 +17,23 @@ namespace CSharpTrainer
 
             foreach (var module in modules)
             {
-                progress.ModuleTaskCompletion[module.Id] = module.Tasks
-                    .Select(t => t.IsCompleted).ToList();
+                if (module.Tasks != null) // Добавим проверку на null
+                {
+                    progress.ModuleTaskProgress[module.Id] = module.Tasks
+                        .Select(t => new TaskProgressData { IsCompleted = t.IsCompleted, UserCode = t.UserCode ?? string.Empty }) // Добавим ?? string.Empty на всякий случай
+                        .ToList();
+                }
             }
 
-            var json = JsonSerializer.Serialize(progress, new JsonSerializerOptions { WriteIndented = true });
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            var json = JsonSerializer.Serialize(progress, options);
             File.WriteAllText(FilePath, json);
         }
-
+        public class TaskProgressData
+        {
+            public bool IsCompleted { get; set; }
+            public string UserCode { get; set; } = string.Empty;
+        }
         public static void LoadProgress(List<Module> modules)
         {
             if (!File.Exists(FilePath)) return;
@@ -32,19 +41,19 @@ namespace CSharpTrainer
             var json = File.ReadAllText(FilePath);
             var progress = JsonSerializer.Deserialize<UserProgress>(json);
 
-            if (progress?.ModuleTaskCompletion == null) return;
+            if (progress?.ModuleTaskProgress == null) return;
 
             foreach (var module in modules)
             {
-                if (progress.ModuleTaskCompletion.TryGetValue(module.Id, out var taskCompletionList))
+                if (module.Tasks != null && progress.ModuleTaskProgress.TryGetValue(module.Id, out var taskProgressDataList))
                 {
-                    for (int i = 0; i < module.Tasks.Count && i < taskCompletionList.Count; i++)
+                    for (int i = 0; i < module.Tasks.Count && i < taskProgressDataList.Count; i++)
                     {
-                        module.Tasks[i].IsCompleted = taskCompletionList[i];
+                        module.Tasks[i].IsCompleted = taskProgressDataList[i].IsCompleted;
+                        module.Tasks[i].UserCode = taskProgressDataList[i].UserCode;
                     }
                 }
             }
         }
     }
-
 }
