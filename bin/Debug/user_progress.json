@@ -6,40 +6,40 @@
         "UserCode": "int age=30;"
       },
       {
-        "IsCompleted": false,
-        "UserCode": ""
+        "IsCompleted": true,
+        "UserCode": "string name = \u0022\u0410\u043D\u044F\u0022;"
       },
       {
-        "IsCompleted": false,
-        "UserCode": ""
+        "IsCompleted": true,
+        "UserCode": "bool isActive = true;"
       },
       {
-        "IsCompleted": false,
-        "UserCode": ""
+        "IsCompleted": true,
+        "UserCode": "double price =19.99;"
       },
       {
-        "IsCompleted": false,
-        "UserCode": ""
+        "IsCompleted": true,
+        "UserCode": "const string GREETING = \u0022Hello\u0022;"
       },
       {
-        "IsCompleted": false,
-        "UserCode": ""
+        "IsCompleted": true,
+        "UserCode": "char grade = \u0027A\u0027;"
       },
       {
-        "IsCompleted": false,
-        "UserCode": ""
+        "IsCompleted": true,
+        "UserCode": "decimal total = 100.5m;"
       },
       {
-        "IsCompleted": false,
-        "UserCode": ""
+        "IsCompleted": true,
+        "UserCode": "DateTime birthDate = DateTime.Now;"
       },
       {
-        "IsCompleted": false,
-        "UserCode": ""
+        "IsCompleted": true,
+        "UserCode": "object obj = null;"
       },
       {
-        "IsCompleted": false,
-        "UserCode": ""
+        "IsCompleted": true,
+        "UserCode": "int? nullableValue;"
       }
     ],
     "2": [

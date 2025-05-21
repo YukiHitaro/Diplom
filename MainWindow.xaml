@@ -8,7 +8,7 @@
         Height="600"
         WindowStartupLocation="CenterScreen"
         Background="{StaticResource PrimaryBackgroundColor}"
-        Foreground="{StaticResource PrimaryTextColor}">
+        Foreground="{StaticResource PrimaryTextColor}" ResizeMode="NoResize">
 
     <Grid>
         <!-- Верхняя панель -->
