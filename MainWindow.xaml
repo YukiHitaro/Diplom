@@ -12,8 +12,28 @@
 
     <Grid>
         <!-- Верхняя панель -->
+        <DockPanel Background="{StaticResource SecondaryBackgroundColor}" DockPanel.Dock="Top" RenderTransformOrigin="0.499,0.483" Margin="0,10,0,504">
+            <TextBlock Text="Тренажёр C#"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Foreground="{StaticResource AccentColor}"
+                       VerticalAlignment="Center"
+                       Margin="20,0,0,0"/>
+            <!--  Выравнивание текста слева по умолчанию для первого элемента DockPanel, если не указано DockPanel.Dock -->
+
+            <Button x:Name="FaqButton"
+                    Content="Справка"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Width="100" 
+                    Height="35" 
+                    VerticalAlignment="Center"
+                    Margin="0,0,20,0"
+                    Click="FaqButton_Click"
+                    DockPanel.Dock="Right"/>
+        </DockPanel>
 
         <!-- Содержимое -->
+        <!-- Margin Top для Grid теперь 60 (высота DockPanel) + 20 (отступ) = 80 -->
         <Grid Margin="20,80,20,20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -49,8 +69,8 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Border Margin="0,5"
-        Style="{StaticResource ModuleBorderStyle}"
-        Padding="10">
+                                    Style="{StaticResource ModuleBorderStyle}"
+                                    Padding="10">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
@@ -59,10 +79,10 @@
                                     </Grid.ColumnDefinitions>
 
                                     <materialDesign:PackIcon Kind="CodeTags"
-                                Width="32"
-                                Height="32"
-                                Foreground="{StaticResource AccentColor}"
-                                Margin="0,0,10,0"/>
+                                                             Width="32"
+                                                             Height="32"
+                                                             Foreground="{StaticResource AccentColor}"
+                                                             Margin="0,0,10,0"/>
 
                                     <StackPanel Grid.Column="1">
                                         <TextBlock Text="{Binding Title}" Style="{StaticResource ModuleTitleStyle}"/>
@@ -70,10 +90,11 @@
                                     </StackPanel>
 
                                     <Button Grid.Column="2"
-                Content="Открыть"
-                Style="{StaticResource AccentButtonStyle}"
-                Click="OpenModule_Click"
-                DataContext="{Binding RelativeSource={RelativeSource AncestorType=Border}}"/>
+                                            Content="Открыть"
+                                            Style="{StaticResource AccentButtonStyle}"
+                                            Click="OpenModule_Click"
+                                            DataContext="{Binding}"/>
+                                    <!-- Исправлено: DataContext кнопки - это сам модуль -->
                                 </Grid>
                             </Border>
                         </DataTemplate>
@@ -81,15 +102,6 @@
                 </ItemsControl>
             </ScrollViewer>
         </Grid>
-        <DockPanel Background="{StaticResource SecondaryBackgroundColor}" DockPanel.Dock="Top" Margin="0,0,0,531">
-            <TextBlock Text="Тренажёр C#"
-                       FontSize="24"
-                       FontWeight="Bold"
-                       Foreground="{StaticResource AccentColor}"
-                       VerticalAlignment="Center"
-                       Margin="20,0,0,0"
-                       HorizontalAlignment="Left"/>
-            <!--  Выравнивание текста слева -->
-        </DockPanel>
+        <!-- Убрана старая DockPanel, ее функционал теперь в DockPanel выше -->
     </Grid>
 </Window>

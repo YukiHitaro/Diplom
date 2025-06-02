@@ -44,8 +44,8 @@
     ],
     "2": [
       {
-        "IsCompleted": false,
-        "UserCode": ""
+        "IsCompleted": true,
+        "UserCode": "for (int i = 1; i \u003C= 10; i\u002B\u002B)\r\n{\r\n    Console.WriteLine(i);\r\n}"
       },
       {
         "IsCompleted": false,
